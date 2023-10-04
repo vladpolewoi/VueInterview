@@ -16,7 +16,7 @@
       <template v-else>
         <input
           v-model="v$[field.name].$model"
-          type="text"
+          :type="field.type || 'text'"
           :name="field.name"
           :id="field.name"
           @blur="v$[field.name].$touch"
@@ -52,8 +52,8 @@ const formData = reactive<IFormData>({
 })
 const formFields = [
   { name: 'name' },
-  { name: 'email' },
-  { name: 'password' },
+  { name: 'email', type: 'email' },
+  { name: 'password', type: 'password' },
   { name: 'bio', rows: 3, type: 'textarea' }
 ]
 
