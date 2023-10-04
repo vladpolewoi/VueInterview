@@ -7,6 +7,11 @@ const router = createRouter({
       path: '/basic-component',
       name: 'basic',
       component: () => import('@/views/BasicComponentView.vue')
+    },
+    {
+      path: '/dynamic-style',
+      name: 'style',
+      component: () => import('@/views/DynamicStyleView.vue')
     }
   ]
 })

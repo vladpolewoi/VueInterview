@@ -1,5 +1,5 @@
 <template>
-  <h3 class="text-xl mb-10">Hello from BasicComponent</h3>
+  <h3 class="text-xl mb-10">BasicComponent</h3>
   <ListItems :items="items" @onItemClick="onItemClick" />
 </template>
 

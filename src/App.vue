@@ -7,10 +7,7 @@ import { RouterLink, RouterView } from 'vue-router'
     <div class="wrapper">
       <nav class="absolute top-0 left-0 w-full flex items-center justify-center">
         <RouterLink :to="{ name: 'basic' }">Basic Component</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
+        <RouterLink :to="{ name: 'style' }">Dynamic Style</RouterLink>
       </nav>
     </div>
   </header>
