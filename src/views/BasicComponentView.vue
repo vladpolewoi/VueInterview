@@ -1,5 +1,7 @@
 <template>
-  <ListItems :items="items" @onItemClick="onItemClick" />
+  <ListItems :items="items" @onItemClick="onItemClick" v-slot="item">
+    <div>{{ item.title }}</div>
+  </ListItems>
 </template>
 
 <script setup lang="ts">

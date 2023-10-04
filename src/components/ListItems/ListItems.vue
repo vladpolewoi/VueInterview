@@ -7,7 +7,7 @@
       data-test="item"
       @click="$emit('onItemClick', item.id)"
     >
-      {{ item.title }}
+      <slot v-bind="item"></slot>
     </li>
   </ul>
 </template>

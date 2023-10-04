@@ -14,6 +14,11 @@ const router = createRouter({
       component: () => import('@/views/DynamicStyleView.vue')
     },
     {
+      path: '/state',
+      name: 'state',
+      component: () => import('@/views/StateManagement.vue')
+    },
+    {
       path: '/routing',
       name: 'routing',
       component: () => import('@/views/RoutingView.vue'),
