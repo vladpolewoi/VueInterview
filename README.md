@@ -17,3 +17,5 @@ For tests
 ```sh
 npm run test
 ```
+
+![screen-gif](./demo.gif)
