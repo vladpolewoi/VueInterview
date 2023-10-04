@@ -14,6 +14,11 @@ const router = createRouter({
       component: () => import('@/views/DynamicStyleView.vue')
     },
     {
+      path: '/api-calls',
+      name: 'api',
+      component: () => import('@/views/ApiCallsView.vue')
+    },
+    {
       path: '/state',
       name: 'state',
       component: () => import('@/views/StateManagement.vue')
