@@ -14,6 +14,11 @@ const router = createRouter({
       component: () => import('@/views/DynamicStyleView.vue')
     },
     {
+      path: '/form',
+      name: 'form',
+      component: () => import('@/views/FormHandlingView.vue')
+    },
+    {
       path: '/api-calls',
       name: 'api',
       component: () => import('@/views/ApiCallsView.vue')
