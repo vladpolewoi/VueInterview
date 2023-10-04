@@ -24,7 +24,7 @@ button {
   @apply hover:bg-gray-800 hover:text-white cursor-pointer;
 }
 button.disabled {
-  @apply bg-gray-400 text-gray-600 cursor-not-allowed;
+  @apply bg-zinc-900 text-gray-600 cursor-not-allowed;
 }
 input, textarea {
   @apply bg-transparent py-2 px-4 rounded-lg border border-gray-800;

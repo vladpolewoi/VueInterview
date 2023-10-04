@@ -1,60 +1,31 @@
 <template>
   <form @submit.prevent="onSubmit" class="userForm">
-    <h2 class="text-lg text-gray-500">User Form</h2>
-    <div class="form-group">
-      <label for="name">Name:</label>
-      <input type="text" id="name" v-model="formData.name" name="name" @blur="v$.name.$touch" />
-      <template v-if="v$.name.$error">
-        <span v-if="v$.name.required.$invalid" class="error-message">Name is required.</span>
-        <span v-if="v$.name.minLength.$invalid" class="error-message"
-          >Name must be at least 3 characters long.</span
-        >
-      </template>
-    </div>
+    <h2 class="text-lg text-gray-500 text-center">User Form</h2>
 
-    <div class="form-group">
-      <label for="name">Email:</label>
-      <input type="text" id="email" v-model="formData.email" name="email" @blur="v$.email.$touch" />
-      <template v-if="v$.email.$error">
-        <span v-if="v$.email.required.$invalid" class="error-message">Email is required.</span>
-        <span v-if="v$.email.email.$invalid" class="error-message">Not a valid email</span>
+    <div class="form-group" v-for="field in formFields" :key="field.name">
+      <label for="name">{{ field.name.toUpperCase() }}:</label>
+      <template v-if="field.type === 'textarea'">
+        <textarea
+          v-model="v$[field.name].$model"
+          :name="field.name"
+          :id="field.name"
+          @blur="v$[field.name].$touch"
+          :rows="field.rows"
+        ></textarea>
       </template>
-    </div>
-
-    <div class="form-group">
-      <label for="password">Password:</label>
-      <input
-        type="text"
-        id="password"
-        v-model="formData.password"
-        name="password"
-        @blur="v$.password.$touch"
-      />
-      <template v-if="v$.password.$error">
-        <span v-if="v$.password.required.$invalid" class="error-message"
-          >Password is required.</span
-        >
-        <span v-if="v$.password.minLength.$invalid" class="error-message"
-          >Password must be at least 8 characters long.</span
-        >
+      <template v-else>
+        <input
+          v-model="v$[field.name].$model"
+          type="text"
+          :name="field.name"
+          :id="field.name"
+          @blur="v$[field.name].$touch"
+        />
       </template>
-    </div>
-
-    <div class="form-group">
-      <label for="bio">Bio:</label>
-      <textarea
-        type="text"
-        rows="3"
-        id="bio"
-        v-model="formData.bio"
-        name="bio"
-        @blur="v$.bio.$touch"
-      />
-      <template v-if="v$.bio.$error">
-        <span v-if="v$.bio.required.$invalid" class="error-message">Bio is required.</span>
-        <span v-if="v$.bio.minLength.$invalid" class="error-message"
-          >Bio must be at least 10 characters long.</span
-        >
+      <template v-if="v$[field.name].$error">
+        <span v-for="error in v$[field.name].$silentErrors" :key="error.$uid">{{
+          error.$message
+        }}</span>
       </template>
     </div>
 
@@ -79,6 +50,12 @@ const formData = reactive<IFormData>({
   password: '',
   bio: ''
 })
+const formFields = [
+  { name: 'name' },
+  { name: 'email' },
+  { name: 'password' },
+  { name: 'bio', rows: 3, type: 'textarea' }
+]
 
 const rules = computed(() => {
   return {
