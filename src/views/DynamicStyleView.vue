@@ -1,5 +1,4 @@
 <template>
-  <h3 class="text-xl mb-10">Dynamic Style</h3>
   <ColorBox :color="color">
     <h2>Text For Testing</h2>
   </ColorBox>

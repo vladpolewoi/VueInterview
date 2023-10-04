@@ -8,11 +8,13 @@ import { RouterLink, RouterView } from 'vue-router'
       <nav class="absolute top-0 left-0 w-full flex items-center justify-center">
         <RouterLink :to="{ name: 'basic' }">Basic Component</RouterLink>
         <RouterLink :to="{ name: 'style' }">Dynamic Style</RouterLink>
+        <RouterLink :to="{ name: 'routing' }">Routing</RouterLink>
       </nav>
     </div>
   </header>
 
   <div class="container h-full flex flex-col items-center justify-center">
+    <h2 class="mb-10 text-3xl">{{ $route.name }}</h2>
     <RouterView />
   </div>
 </template>

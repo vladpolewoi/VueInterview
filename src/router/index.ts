@@ -12,6 +12,28 @@ const router = createRouter({
       path: '/dynamic-style',
       name: 'style',
       component: () => import('@/views/DynamicStyleView.vue')
+    },
+    {
+      path: '/routing',
+      name: 'routing',
+      component: () => import('@/views/RoutingView.vue'),
+      children: [
+        {
+          path: 'home',
+          name: 'home',
+          component: () => import('@/views/HomeView.vue')
+        },
+        {
+          path: 'about',
+          name: 'about',
+          component: () => import('@/views/AboutView.vue')
+        },
+        {
+          path: 'contact',
+          name: 'contact',
+          component: () => import('@/views/ContactView.vue')
+        }
+      ]
     }
   ]
 })
