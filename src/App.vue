@@ -1,23 +1,23 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
+      <nav class="absolute top-0 left-0 w-full flex items-center justify-center">
+        <RouterLink :to="{ name: 'basic' }">Basic Component</RouterLink>
+        <RouterLink to="/about">About</RouterLink>
+        <RouterLink to="/about">About</RouterLink>
+        <RouterLink to="/about">About</RouterLink>
         <RouterLink to="/about">About</RouterLink>
       </nav>
     </div>
   </header>
 
-  <RouterView />
+  <div class="container h-full flex flex-col items-center justify-center">
+    <RouterView />
+  </div>
 </template>
 
 <style scoped>
